@@ -28,13 +28,13 @@ public class Student {
 	@Column(name="id")
 	private int studentId;
 
-	@NotNull(message="field is required")
-	@Size(min=3,max=15,message="Invalid! Please provide valid name")
+	@NotNull(message="field is required!Provide the first name")
+	@Size(min=3,max=15,message="Invalid! Please provide valid firstname")
 	@Column(name="firstname",length=15)
 	private String firstName;
 	
-	@NotNull(message="field is required")
-	@Size(min=3,max=15,message="Invalid! Please provide valid name")
+	@NotNull(message="field is required!Provide last name")
+	@Size(min=3,max=15,message="Invalid! Please provide valid last name")
 	@Column(name="lastname",length=15)
 	private String lastName;
 	
@@ -43,33 +43,33 @@ public class Student {
 	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd")
 	private Date dateOfBirth;
 	
-	@NotNull(message="field is required")
-	@Size(min=3,max=15,message="Invalid! Please provide valid name")
+	@NotNull(message="field is required!please provide gender")
+	@Size(min=3,max=15,message="Invalid! Please provide gendder")
 	@Column(name="gender",length=15)
 	private String gender;
 	
-	@NotNull(message="field is required")
+	@NotNull(message="field is required!Please provide phone number")
 	@Size(min=10,max=10,message="Invalid! Please provide valid number")
 	@Column(name="phonenumber",length=10)
 	private String phoneNumber;
 	
-	@NotNull(message="field is required")
+	@NotNull(message="field is required!please provide email Id")
 	@Size(min=3,max=30,message="Invalid! Please provide valid email")
 	@Email
 	@Column(name="email",length=30)
 	private String email;
 	
-	@NotNull(message="field is required")
+	@NotNull(message="field is required!Please provide Address")
 	@Size(min=3,max=35,message="Invalid! Please provide valid address")
 	@Column(name="address",length=35)
 	private String address;
 	
-	@NotNull(message="field is required")
+	@NotNull(message="field is required!please provide city")
 	@Size(min=3,max=20,message="Invalid! Please provide valid city name")
 	@Column(name="city",length=20)
 	private String city;
 	
-	@NotNull(message="field is required")
+	@NotNull(message="field is required! Please mention the department")
 	@Size(min=3,max=30,message="Invalid! Please provide valid department")
 	@Column(name="department",length=30)
 	private String department;
