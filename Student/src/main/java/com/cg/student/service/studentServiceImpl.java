@@ -58,7 +58,55 @@ public class studentServiceImpl implements StudentService{
 		return student;
 		
 	}
-	
+
+	public void studentExist(int studentId) throws IdNotFoundException
+	{
+		if(studentDao.existsById(studentId)) {
+			studentDao.deleteById(studentId);
+		}
+		else
+		{
+			throw new IdNotFoundException("StudentId "+studentId+" doesnot exist");
+		}
+		
+	}
+	@Override
+	public void deleteStudent(List<Integer> studentId) throws IdNotFoundException {
+		for(Integer id:studentId)
+		{
+			studentExist(id);
+		}
+		
+	}
+
+	@Override
+	public void deleteAll() {
+		studentDao.deleteAll();
+		
+	}
+
+//	@Override
+//	public String deleteStudent(List<Integer> studentId)  {
+//		Student student=null;
+//		String message="";
+//		for(Integer id:studentId)
+//		{
+//			if(studentDao.existsById(id))
+//			{
+//			studentDao.deleteById(id);
+//			message="Deleted Student with Id"+id;
+//			}
+//			else
+//			{
+//				message="Not Exist";
+//				
+//			}
+//			
+//			
+//		}
+//		return message;
+//	}
+//	
 	
 
 }

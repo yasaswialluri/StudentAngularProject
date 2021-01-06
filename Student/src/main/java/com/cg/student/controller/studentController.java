@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -74,4 +75,34 @@ public class studentController {
 	}
 	
 
+	
+//	@DeleteMapping("student/delete/{studentId}")
+//	public String deletStudentById(@PathVariable("studentId") List<Integer> studentId){
+//		String message="";
+//		
+//			 message= studentService.deleteStudent(studentId);
+//		
+//		return message;
+//		
+//	}
+	
+ 	@DeleteMapping("student/delete/{studentId}")
+	public void delteStudents(@PathVariable("studentId")List<Integer> studentId) throws IdNotFoundException
+	{
+		String message="";
+		try {
+		studentService.deleteStudent(studentId);
+		message="Deleted Successfully";
+		}
+		catch(IdNotFoundException e)
+		{
+			message= e.getMessage();
+		}
+//		return message;
+	}
+ 	@DeleteMapping("student/deleteAll")
+ 	public void deleteAllRecords()
+ 	{
+ 		studentService.deleteAll();
+ 	}
 }

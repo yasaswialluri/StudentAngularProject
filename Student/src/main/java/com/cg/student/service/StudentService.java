@@ -11,4 +11,6 @@ public interface StudentService {
 	public List<Student> listAllStudent();
 	public Student updateStudent(Student student,int studentId) throws IdNotFoundException;
 	public Student getStudentById(int studentId) throws IdNotFoundException;
+	public void deleteStudent(List<Integer> studentId) throws IdNotFoundException;
+	public void deleteAll();
 }
